@@ -1,8 +1,9 @@
+import React from "react"
 import { UsePostsContext } from '../hooks/UsePostsContext'
 import { UseAuthContext } from '../hooks/UseAuthContext'
 
 //date fns
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+// import { formatDistance } from 'date-fns';
 
 const postDetails = ({post})=>{
     //getting dispatch from that hook
@@ -19,7 +20,8 @@ const postDetails = ({post})=>{
 
         //fetch adress for delete
         //second arg-object that says the method of request 
-        const response = await fetch('/api/posts/' + post._id ,{
+    
+        const response = await fetch(`${process.env.REACT_APP_URL}/api/posts/` + post._id ,{
             method:'DELETE',
             headers:{
                 'Authorization' : `Bearer ${user.token}`
@@ -37,7 +39,7 @@ const postDetails = ({post})=>{
             <h4>{post.id}.{post.title}</h4>
             <p><strong>Date : </strong>{post.date}</p>
             <p><strong>Content : </strong>{post.content}</p>
-            <p>Updated {formatDistanceToNow(new Date(post.updatedAt), { addSuffix: true })}</p>
+            {/* <p>Updated {formatDistance(new Date(post.updatedAt), { addSuffix: true })}</p> */}
             <span className="material-symbols-outlined delete-button" onClick={handleClick}>Delete</span>
         </div>
     )
