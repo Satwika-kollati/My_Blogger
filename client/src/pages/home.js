@@ -1,5 +1,5 @@
 
-import React,{useEffect} from 'react'
+import {useEffect} from 'react'
 import { UsePostsContext } from '../hooks/UsePostsContext'
 import { UseAuthContext } from '../hooks/UseAuthContext'
 
@@ -26,7 +26,6 @@ const Home = ()=>{
             //but since cross origin request  are not allowed. we add proxy property in package.json file 
             //so any requests not recognised by the react server sends them to proxy server and it recognises that route
             //"THIS ISSUE IS CURRENTLY FIXED ONLY FOR DEVELOPMENT"
-            
             const response = await fetch(`${process.env.REACT_APP_URL}/api/posts`,{
                 //sending the authorization property eith users token so we can verify auth in middleware
                 headers : {

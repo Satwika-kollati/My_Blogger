@@ -1,4 +1,4 @@
-import React,{ createContext, useReducer } from "react"
+import { createContext, useReducer } from "react"
 
 //creating a new context and exporting it
 export const PostsContext = createContext()
