@@ -4,7 +4,7 @@ import { UsePostsContext } from "./UsePostsContext"
 //basically to logout
 //1.we need to remove the jwt token stored in local storage
 //2.we need to change the global state by using dispatch function
-//so,ne need to send any request to api
+//so,no need to send any request to api
 export const useLogout  = () => {
     const { dispatch } = UseAuthContext()
 
